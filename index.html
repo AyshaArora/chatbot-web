@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot</title>
-</head>
-<body>
-    <h1>Chat with Our Rasa Chatbot</h1>
+    <title>Chat with Our Rasa Chatbot</title>
     <script>
         !(function () {
             let e = document.createElement("script"),
                 t = document.head || document.getElementsByTagName("head")[0];
-            (e.src = "https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js"),
-                (e.async = !0),
-                (e.onload = () => {
-                    window.WebChat.default(
-                        {
-                            initPayload: "/greet",
-                            customData: { language: "en" },
-                            socketUrl: "http://localhost:5005",
-                            title: "Education Chatbot",
-                            subtitle: "Ask about your education rights!",
-                        },
-                        null
-                    );
-                }),
-                t.insertBefore(e, t.firstChild);
+            e.src = "https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js";
+            e.async = true;
+            e.onload = () => {
+                window.WebChat.default(
+                    {
+                        initPayload: "/greet",
+                        customData: { language: "en" },
+                        socketUrl: "http://localhost:5005", 
+                        title: "Education Chatbot",
+                        subtitle: "Ask me about education rights!",
+                    },
+                    null
+                );
+            };
+            t.insertBefore(e, t.firstChild);
         })();
     </script>
+</head>
+<body>
+    <h1>Chat with Our Rasa Chatbot</h1>
 </body>
 </html>
