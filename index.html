@@ -9,12 +9,12 @@
   <h1>Chat with Our Rasa Chatbot</h1>
 
   <!-- Load the Rasa WebChat script -->
-  <script src="https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js"></script>
   <script>
     window.WebChat.default({
       initPayload: "/greet",
       customData: { language: "en" },
-      socketUrl: "https://1bed-142-114-64-46.ngrok-free.app",  
+      socketUrl: "https://1bed-142-114-64-46.ngrok-free.app",  // Ngrok HTTPS URL
+      socketPath: "/socket.io/", 
       title: "Education Chatbot",
       subtitle: "Ask me about education rights!",
       showCloseButton: true,
@@ -23,5 +23,6 @@
       }
     }, null);
   </script>
+  
 </body>
 </html>
