@@ -9,20 +9,42 @@
   <h1>Chat with Our Rasa Chatbot</h1>
 
   <!-- Load the Rasa WebChat script -->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chat with Our Rasa Chatbot</title>
+</head>
+<body>
+  <h1>Chat with Our Rasa Chatbot</h1>
+
+  <!-- Load Rasa WebChat script -->
+  <script src="https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js"></script>
+  
+  <!-- Inline script to render chatbot -->
   <script>
-    window.WebChat.default({
-      initPayload: "/greet",
-      customData: { language: "en" },
-      socketUrl: "https://1bed-142-114-64-46.ngrok-free.app",  // Ngrok HTTPS URL
-      socketPath: "/socket.io/", 
-      title: "Education Chatbot",
-      subtitle: "Ask me about education rights!",
-      showCloseButton: true,
-      params: {
-        storage: "session"
-      }
-    }, null);
+    window.onload = function () {
+      window.WebChat.default(
+        {
+          initPayload: "/greet",
+          customData: { language: "en" },
+          socketUrl: "https://1bed-142-114-64-46.ngrok-free.app",
+          socketPath: "/socket.io/",
+          title: "Education Chatbot",
+          subtitle: "Ask me about education rights!",
+          showCloseButton: true,
+          params: {
+            storage: "session"
+          }
+        },
+        null
+      );
+    };
   </script>
+</body>
+</html>
+
   
 </body>
 </html>
