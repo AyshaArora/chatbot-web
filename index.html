@@ -1,38 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chat with Our Rasa Chatbot</title>
+  <script src="https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js"></script>
 </head>
 <body>
   <h1>Chat with Our Rasa Chatbot</h1>
 
-  <!-- Load Rasa WebChat with onload to ensure it's ready -->
   <script>
-    window.onload = function () {
-      const script = document.createElement("script");
-      script.src = "https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.js";
-      script.async = true;
-      script.onload = () => {
-        window.WebChat.default(
-          {
-            initPayload: "/greet",
-            customData: { language: "en" },
-            socketUrl: "https://1bed-142-114-64-46.ngrok-free.app",  // your ngrok tunnel
-            socketPath: "/socket.io/",
-            title: "Education Chatbot",
-            subtitle: "Ask me about education rights!",
-            showCloseButton: true,
-            params: {
-              storage: "session"
-            }
-          },
-          null
-        );
-      };
-      document.body.appendChild(script);
-    };
+    window.WebChat.default({
+      initPayload: "/greet",
+      customData: { language: "en" },
+      socketUrl: "https://8042-199-212-64-66.ngrok-free.app",
+      socketPath: "/socket.io/",
+      title: "Education Chatbot",
+      subtitle: "Ask me about education rights!",
+      showCloseButton: true,
+      params: {
+        storage: "session"
+      }
+    }, null);
   </script>
 </body>
 </html>
