@@ -76,6 +76,12 @@
     const inputBox = document.getElementById('input-box');
     const chatBox = document.getElementById('chat-box');
 
+    // 🌐 Toggle your Rasa server here
+    const rasa_server_url = "https://7b38-142-114-64-46.ngrok-free.app"; // ✅ Active NGROK
+    // const rasa_server_url = "https://ai-ble-c4.onrender.com";        // ❌ Commented out: Render
+
+    const webhook_url = `${rasa_server_url}/webhooks/rest/webhook`;
+
     inputBox.addEventListener('keypress', async (e) => {
       if (e.key === 'Enter') {
         const message = inputBox.value.trim();
@@ -85,7 +91,7 @@
         inputBox.value = '';
 
         try {
-          const res = await fetch('https://ai-ble-c4.onrender.com/webhooks/rest/webhook', {
+          const res = await fetch(webhook_url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ sender: 'user', message: message })
